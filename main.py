@@ -12,7 +12,7 @@ if __name__ == '__main__':
     for i in range(len(pdf_files)):
         pdf = pdf_files[i]
         print(f'{i + 1}. {pdf}')
-    print('Note: Type using the number (1, 2, etc)')
+    print('Note: Type using the number (1, 2, 3)')
     number_input = int(input())
     if number_input > (len(pdf_files)) or number_input == 0:
         print("Option doesn't exists")
@@ -25,10 +25,6 @@ if __name__ == '__main__':
     
     # clean the text
     cleaned_dictionary_content = processor.clean_dictionary_pages(extracted_text)
-
-    print("\n--------------CLEANED RESULT (First 1000 Chars)--------------")
-    print(cleaned_dictionary_content[:1000]) # Print only the first part to check the cleaning
-    print(f"\nTotal Cleaned Characters: {len(cleaned_dictionary_content)}")
     
     # chunk text
     dictionary_entries = processor.chunk_text_by_entry(cleaned_dictionary_content)
